@@ -6,7 +6,6 @@
   <style>
     body {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -14,6 +13,13 @@
       background: linear-gradient(to right, #667eea, #764ba2);
       font-family: Arial, sans-serif;
       color: white;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 40px; /* 좌우 간격 */
+    }
+    .player {
       text-align: center;
     }
     h1 {
@@ -38,14 +44,44 @@
       background: yellow;
       color: black;
     }
+    /* 오른쪽 문구 박스 */
+    .comment {
+      max-width: 320px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      padding: 20px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      border: 2px solid rgba(255,255,255,0.3);
+      animation: glow 3s infinite alternate;
+    }
+    /* 박스 테두리 반짝임 */
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 30px #ff69b4; }
+      to { box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 60px #ffff00; }
+    }
   </style>
 </head>
 <body>
-  <h1>과제 제출용 웹사이트<br>챗GPT로 만듬 🎵</h1>
-  <audio controls>
-    <source src="song.mp3" type="audio/mpeg">
-    브라우저가 오디오를 지원하지 않습니다.
-  </audio>
-  <a href="https://github.com" target="_blank">깃허브로 이동</a>
+  <div class="container">
+    <!-- 왼쪽: 노래 플레이어 -->
+    <div class="player">
+      <h1>과제 제출용 웹사이트<br>챗GPT로 만듬 🎵</h1>
+      <audio controls>
+        <source src="song.mp3" type="audio/mpeg">
+        브라우저가 오디오를 지원하지 않습니다.
+      </audio>
+      <br>
+      <a href="https://github.com" target="_blank">깃허브로 이동</a>
+    </div>
+
+    <!-- 오른쪽: 설명 문구 박스 -->
+    <div class="comment">
+      이렇게 요즘은 <b>챗GPT</b>로도 웹사이트를 만들 수 있습니다.<br>
+      <span style="color:#ffd700; font-weight:bold;">AI의 발전</span>이 놀랍죠?
+    </div>
+  </div>
 </body>
 </html>
